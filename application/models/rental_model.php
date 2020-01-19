@@ -13,26 +13,6 @@ class rental_model extends CI_model
         return $this->db->get_where('mobil', ['id_mobil' => $id_mobil])->row_array();
     }
 
-    public function getDataType()
-    {
-        return $this->db->get('type')->result_array();
-    }
-
-    public function tambahDataMobil()
-    {
-        $data = [
-            'kode_type' => $this->input->post('kode_type'),
-            'merk' => $this->input->post('merk'),
-            'no_plat' => $this->input->post('no_plat'),
-            'tahun' => $this->input->post('tahun'),
-            'warna' => $this->input->post('warna'),
-            'status' => $this->input->post('status'),
-            'gambar' => $this->_uploadGambar()
-        ];
-
-        $this->db->insert('mobil', $data);
-    }
-
     private function _uploadGambar()
     {
         $config['upload_path']          = './assets/img/imgcar/';
@@ -53,5 +33,20 @@ class rental_model extends CI_model
     {
         $this->db->where('id_mobil', $id_mobil);
         $this->db->delete('mobil');
+    }
+
+    public function getDataType()
+    {
+        return $this->db->get('type')->result_array();
+    }
+
+    public function tambahDataType()
+    {
+        $data = [
+            'kode_type' => $this->input->post('kode_type'),
+            'nama_type' => $this->input->post('nama_type')
+        ];
+
+        $this->db->insert('type', $data);
     }
 }
