@@ -8,6 +8,11 @@ class rental_model extends CI_model
         return $this->db->get('mobil')->result_array();
     }
 
+    public function getDataMobilById($id_mobil)
+    {
+        return $this->db->get_where('mobil', ['id_mobil' => $id_mobil])->row_array();
+    }
+
     public function getDataType()
     {
         return $this->db->get('type')->result_array();
@@ -42,5 +47,11 @@ class rental_model extends CI_model
             $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors() . '</div>');
             redirect('admin/Data_mobil');
         }
+    }
+
+    public function hapusDataMobil($id_mobil)
+    {
+        $this->db->where('id_mobil', $id_mobil);
+        $this->db->delete('mobil');
     }
 }
