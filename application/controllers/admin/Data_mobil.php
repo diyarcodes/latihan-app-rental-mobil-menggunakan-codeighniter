@@ -54,4 +54,14 @@ class Data_mobil extends CI_Controller
           </div>');
         redirect('admin/Data_mobil');
     }
+
+    public function detail_mobil($id_mobil)
+    {
+        $data['detail'] = $this->rental_model->getDataMobilById($id_mobil);
+
+        $this->load->view('templates_admin/header');
+        $this->load->view('templates_admin/sidebar');
+        $this->load->view('admin/detail_mobil', $data);
+        $this->load->view('templates_admin/footer');
+    }
 }
