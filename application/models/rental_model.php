@@ -40,6 +40,11 @@ class rental_model extends CI_model
         return $this->db->get('type')->result_array();
     }
 
+    public function getDataTypeById($id_type)
+    {
+        return $this->db->get_where('type', ['id_type' => $id_type])->row_array();
+    }
+
     public function tambahDataType()
     {
         $data = [
@@ -48,5 +53,16 @@ class rental_model extends CI_model
         ];
 
         $this->db->insert('type', $data);
+    }
+
+    public function ubahDataType()
+    {
+        $data = [
+            'kode_type' => $this->input->post('kode_type'),
+            'nama_type' => $this->input->post('nama_type')
+        ];
+
+        $this->db->where('id_type', $this->input->post('id_type'));
+        $this->db->update('type', $data);
     }
 }

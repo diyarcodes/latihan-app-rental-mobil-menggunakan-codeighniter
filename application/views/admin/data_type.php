@@ -15,6 +15,7 @@
                 <th width="20px">No</th>
                 <th>Kode type</th>
                 <th>Nama Type</th>
+                <th width="180px">Aksi</th>
             </tr>
         </thead>
 
@@ -26,6 +27,10 @@
                     <td><?= $no++; ?></td>
                     <td><?= $typ['kode_type']; ?></td>
                     <td><?= $typ['nama_type']; ?></td>
+                    <td>
+                        <a class="btn btn-sm btn-primary" href="<?= base_url('admin/Data_type/ubah_type/') . $typ['id_type']; ?>"><i class="fas fa-edit"></i></a>
+                        <a class="btn btn-sm btn-danger" href="<?= base_url('admin/Data_type/hapus_type/') . $typ['id_type']; ?>"><i class="fas fa-trash"></i></a>
+                    </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

@@ -1,18 +1,19 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Form Tambah Data Tyoe</h1>
+            <h1>Form Ubah Data Tyoe</h1>
         </div>
 
-        <form action="<?= base_url('admin/data_type/tambah_type'); ?>" method="post" enctype="multipart/form-data">
+        <form action="" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="id_type" id="" value="<?= $type['id_type']; ?>">
             <div class="form-group">
                 <label for="">kode Type</label>
-                <input type="text" name="kode_type" class="form-control">
+                <input type="text" name="kode_type" class="form-control" value="<?= $type['kode_type']; ?>">
                 <?= form_error('kode_type', '<div class="text-small text-danger">', '</div>') ?>
             </div>
             <div class="form-group">
-                <label for="">Kode Type</label>
-                <input type="text" name="nama_type" class="form-control">
+                <label for="">Nama Type</label>
+                <input type="text" name="nama_type" class="form-control" value="<?= $type['nama_type']; ?>">
                 <?= form_error('nama_type', '<div class="text-small text-danger">', '</div>') ?>
             </div>
             <button type="submit" class="btn btn-primary">Simpan</button>
