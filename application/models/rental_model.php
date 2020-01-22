@@ -13,6 +13,21 @@ class rental_model extends CI_model
         return $this->db->get_where('mobil', ['id_mobil' => $id_mobil])->row_array();
     }
 
+    public function tambahDataMobil()
+    {
+        $data = [
+            'kode_type' => $this->input->post('kode_type'),
+            'merk' => $this->input->post('merk'),
+            'no_plat' => $this->input->post('no_plat'),
+            'warna' => $this->input->post('warna'),
+            'tahun' => $this->input->post('tahun'),
+            'status' => $this->input->post('status'),
+            'gambar' => $this->_uploadGambar()
+        ];
+
+        $this->db->insert('mobil', $data);
+    }
+
     private function _uploadGambar()
     {
         $config['upload_path']          = './assets/img/imgcar/';
@@ -25,8 +40,34 @@ class rental_model extends CI_model
             return $this->upload->data('file_name');
         } else {
             $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors() . '</div>');
-            redirect('admin/Data_mobil');
         }
+    }
+
+    public function ubahDataMobil()
+    {
+        $data = [
+            'kode_type' => $this->input->post('kode_type'),
+            'merk' => $this->input->post('merk'),
+            'no_plat' => $this->input->post('no_plat'),
+            'warna' => $this->input->post('warna'),
+            'tahun' => $this->input->post('tahun'),
+            'status' => $this->input->post('status'),
+            'gambar' => $this->_ubahUploadGambar()
+        ];
+
+        $this->db->where('id_mobil', $this->input->post('id_mobil'));
+        $this->db->update('mobil', $data);
+    }
+
+    private function _ubahUploadGambar()
+    {
+        if (empty($_FILES['gambar']['name'])) {
+            $gambar = $this->input->post('gambarLama');
+        } else {
+            $gambar = $this->_uploadGambar();
+        }
+
+        return $gambar;
     }
 
     public function hapusDataMobil($id_mobil)

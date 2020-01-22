@@ -42,7 +42,7 @@
                         <td>
                             <a href="<?= base_url('admin/data_mobil/detail_mobil/') . $mbl['id_mobil']; ?>" class="btn btn-sm btn-success"><i class="fas fa-eye"></i></a>
                             <a href="<?= base_url('admin/data_mobilz/hapus_mobil/') . $mbl['id_mobil']; ?>" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                            <a href="<?= base_url('admin/data_mobil/ubah_mobil/') . $mbl['id_mobil']; ?>" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+                            <a href="<?= base_url('admin/Data_mobil/ubah_mobil/') . $mbl['id_mobil']; ?>" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
