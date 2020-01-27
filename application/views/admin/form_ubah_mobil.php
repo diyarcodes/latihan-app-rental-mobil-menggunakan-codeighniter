@@ -57,6 +57,7 @@
                                 <?= form_error('status', '<div class="text-small text-danger">', '</div>') ?>
                             </div>
                             <div class="form-group">
+                                <img src="<?= base_url('assets/img/imgcar/') . $mobil['gambar']; ?>" width="90px" height="100px">
                                 <input type="hidden" name="gambarLama" value="<?= $mobil['gambar']; ?>">
                                 <label for="">gambar</label>
                                 <input type="file" name="gambar" class="form-control">
