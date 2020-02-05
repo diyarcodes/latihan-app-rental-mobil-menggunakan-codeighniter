@@ -5,8 +5,11 @@ class Dashboard extends CI_Controller
 {
     public function index()
     {
-        $this->load->view('templates_customer/header');
-        $this->load->view('customer/dashboard');
+        $data['judul'] = 'Dashboard';
+        $data['mobil'] = $this->rental_model->getDataMobil();
+
+        $this->load->view('templates_customer/header', $data);
+        $this->load->view('customer/dashboard', $data);
         $this->load->view('templates_customer/footer');
     }
 }

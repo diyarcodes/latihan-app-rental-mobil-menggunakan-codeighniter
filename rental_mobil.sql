@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 22 Jan 2020 pada 15.00
+-- Waktu pembuatan: 06 Feb 2020 pada 00.06
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.2
 
@@ -74,14 +74,11 @@ CREATE TABLE `mobil` (
 --
 
 INSERT INTO `mobil` (`id_mobil`, `kode_type`, `merk`, `no_plat`, `warna`, `tahun`, `status`, `gambar`) VALUES
-(1, 'SDN', 'Toyota Camry', 'B 1457 FOH', 'Hitam', '2014', '1', 'camry.jpg'),
-(2, 'SDN', 'Sedan', 'B 1456 DAG', 'Hitam', '2020', '1', 'images_(1).jpg'),
+(1, 'SDN', 'Toyota Camry', 'B 1457 FOH', 'Hitam', '2014', '0', 'images_(1)3.jpg'),
 (3, 'SDN', 'Sedan', 'B 1232 DAI', 'Merah', '2015', '0', 'images_(2).jpg'),
 (4, 'SDN', 'nkjbk', 'bkjbjbk', 'bkjbkb', 'kjbk', '1', 'images_(2)1.jpg'),
-(6, 'SDN', 'mklmlm', 'nklnkl', 'nklnlknl', 'knln', '0', 'images_(1)2.jpg'),
-(7, 'LMB', 'bkbk', 'bnkb', 'nkln', 'imag', '1', ''),
-(8, 'SDN', 'nkln', 'nkl', 'nkl', '3103', '0', ''),
-(9, 'MNV', 'nlknkln', 'knlk', 'nkl', 'nkln', '0', '');
+(10, 'SDN', 'Suzuki Ertiga', 'K 4563 ME', 'Putih', '2017', '1', '1551414665635-4fab2fb1f841f369b1facb28ac23493a.jpeg'),
+(11, 'LMB', 'Grand New Avanza', 'AB 5632 K', 'Putih', '2017', '1', '1551423922982-090fa2f55fc2ac2c5b23c9cd411ef013.jpeg');
 
 -- --------------------------------------------------------
 
@@ -197,7 +194,7 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT untuk tabel `mobil`
 --
 ALTER TABLE `mobil`
-  MODIFY `id_mobil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_mobil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `rental`
@@ -215,7 +212,7 @@ ALTER TABLE `transaksi`
 -- AUTO_INCREMENT untuk tabel `type`
 --
 ALTER TABLE `type`
-  MODIFY `id_type` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_type` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

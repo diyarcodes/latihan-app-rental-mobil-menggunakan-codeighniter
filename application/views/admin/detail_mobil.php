@@ -8,7 +8,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-5">
-                        <img src="<?= base_url('assets/img/imgcar/') . $detail['gambar']; ?>" alt="" width="100%">
+                        <img src="<?= base_url('assets/img/imgcar/') . $detail['gambar']; ?>" alt="<?= $detail['gambar']; ?>" width="100%">
                     </div>
                     <div class="col-md-7">
                         <table class="table">
@@ -27,11 +27,6 @@
                                     }
                                     ?>
                                 </td>
-                            </tr>
-
-                            <tr>
-                                <td>Merk</td>
-                                <td><?= $detail['merk']; ?></td>
                             </tr>
 
                             <tr>
@@ -67,7 +62,7 @@
                         </table>
 
                         <a class="btn btn-sm btn-danger" href="<?= base_url('admin/data_mobil'); ?>">Kembali</a>
-                        <a class="btn btn-sm btn-primary" href="<?= base_url('admin/data_mobil/ubah_mobil/') . $detail['id_mobil']; ?>">Kembali</a>
+                        <a class="btn btn-sm btn-primary" href="<?= base_url('admin/data_mobil/ubah_mobil/') . $detail['id_mobil']; ?>">Ubah</a>
                     </div>
                 </div>
             </div>

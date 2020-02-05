@@ -6,7 +6,6 @@ class Data_mobil extends CI_Controller
   public function index()
   {
     $data['mobil'] = $this->rental_model->getDataMobil();
-    $data['type'] = $this->rental_model->getDataType();
 
     $this->load->view('templates_admin/header');
     $this->load->view('templates_admin/sidebar');
@@ -19,12 +18,25 @@ class Data_mobil extends CI_Controller
     $data['mobil'] = $this->rental_model->getDataMobil();
     $data['type'] = $this->rental_model->getDataType();
 
-    $this->form_validation->set_rules('kode_type', 'Kode_type', 'required');
-    $this->form_validation->set_rules('merk', 'Merk', 'required');
-    $this->form_validation->set_rules('no_plat', 'No_plat', 'required');
-    $this->form_validation->set_rules('tahun', 'Tahun', 'required');
-    $this->form_validation->set_rules('warna', 'Warna', 'required');
-    $this->form_validation->set_rules('status', 'Status', 'required');
+    $this->form_validation->set_rules('kode_type', 'Kode Type', 'required|trim', [
+      'required' => 'Kode Type Tidak Boleh Kosong'
+    ]);
+    $this->form_validation->set_rules('merk', 'Merk', 'required|trim', [
+      'required' => 'Merk Tidak Boleh Kosong'
+    ]);
+    $this->form_validation->set_rules('no_plat', 'No plat', 'required|trim', [
+      'required' => 'No. Plat Tidak Boleh Kosong'
+    ]);
+    $this->form_validation->set_rules('warna', 'Warna', 'required|trim', [
+      'required' => 'Warna Tidak Boleh Kosong'
+    ]);
+    $this->form_validation->set_rules('tahun', 'Tahun', 'required|trim|integer', [
+      'required' => 'Warna Tidak Boleh Kosong',
+      'integer' => 'Tahun Harus Angka'
+    ]);
+    $this->form_validation->set_rules('status', 'Status', 'required|trim', [
+      'required' => 'Status Tidak Boleh Kosong'
+    ]);
 
     if ($this->form_validation->run() == false) {
       $this->load->view('templates_admin/header');
@@ -70,12 +82,21 @@ class Data_mobil extends CI_Controller
     $data['mobil'] = $this->rental_model->getDataMobilById($id_mobil);
     $data['type'] = $this->rental_model->getDataType();
 
-    $this->form_validation->set_rules('kode_type', 'Kode_type', 'required');
-    $this->form_validation->set_rules('merk', 'Merk', 'required');
-    $this->form_validation->set_rules('no_plat', 'No_plat', 'required');
-    $this->form_validation->set_rules('tahun', 'Tahun', 'required');
-    $this->form_validation->set_rules('warna', 'Warna', 'required');
-    $this->form_validation->set_rules('status', 'Status', 'required');
+    $data['typeMobil'] = ['SDN', 'LMB', 'MNV'];
+
+    $this->form_validation->set_rules('merk', 'Merk', 'required|trim', [
+      'required' => 'Merk Tidak Boleh Kosong'
+    ]);
+    $this->form_validation->set_rules('no_plat', 'No plat', 'required|trim', [
+      'required' => 'No. Plat Tidak Boleh Kosong'
+    ]);
+    $this->form_validation->set_rules('warna', 'Warna', 'required|trim', [
+      'required' => 'Warna Tidak Boleh Kosong'
+    ]);
+    $this->form_validation->set_rules('tahun', 'Tahun', 'required|trim|integer', [
+      'required' => 'Tahun Tidak Boleh Kosong',
+      'integer' => 'Tahun Harus Angka'
+    ]);
 
     if ($this->form_validation->run() == false) {
       $this->load->view('templates_admin/header');

@@ -25,26 +25,26 @@
                 <?php
                 $no = 1;
                 foreach ($mobil as $mbl) : ?>
-                    <tr>
-                        <td><?= $no++; ?></td>
-                        <td><img src="<?= base_url() . 'assets/img/imgcar/' . $mbl['gambar']; ?>" alt="" width="60px"></td>
-                        <td><?= $mbl['kode_type']; ?></td>
-                        <td><?= $mbl['merk']; ?></td>
-                        <td><?= $mbl['no_plat']; ?></td>
-                        <td><?php
+                <tr>
+                    <td><?= $no++; ?></td>
+                    <td><img src="<?= base_url() . 'assets/img/imgcar/' . $mbl['gambar']; ?>" alt="" width="60px"></td>
+                    <td><?= $mbl['kode_type']; ?></td>
+                    <td><?= $mbl['merk']; ?></td>
+                    <td><?= $mbl['no_plat']; ?></td>
+                    <td><?php
                             if ($mbl['status'] == "0") {
                                 echo "<span class='badge badge-danger'>Tidak Tesedia</span>";
                             } else {
                                 echo "<span class='badge badge-primary'>Tesedia</span>";
                             }
                             ?>
-                        </td>
-                        <td>
-                            <a href="<?= base_url('admin/data_mobil/detail_mobil/') . $mbl['id_mobil']; ?>" class="btn btn-sm btn-success"><i class="fas fa-eye"></i></a>
-                            <a href="<?= base_url('admin/data_mobilz/hapus_mobil/') . $mbl['id_mobil']; ?>" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                            <a href="<?= base_url('admin/Data_mobil/ubah_mobil/') . $mbl['id_mobil']; ?>" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
-                        </td>
-                    </tr>
+                    </td>
+                    <td>
+                        <a href="<?= base_url('admin/data_mobil/detail_mobil/') . $mbl['id_mobil']; ?>" class="btn btn-sm btn-success"><i class="fas fa-eye"></i></a>
+                        <a href="<?= base_url('admin/data_mobil/hapus_mobil/') . $mbl['id_mobil']; ?>" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                        <a href="<?= base_url('admin/Data_mobil/ubah_mobil/') . $mbl['id_mobil']; ?>" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+                    </td>
+                </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>

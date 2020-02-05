@@ -17,10 +17,10 @@ class rental_model extends CI_model
     {
         $data = [
             'kode_type' => $this->input->post('kode_type'),
-            'merk' => $this->input->post('merk'),
-            'no_plat' => $this->input->post('no_plat'),
-            'warna' => $this->input->post('warna'),
-            'tahun' => $this->input->post('tahun'),
+            'merk' => htmlspecialchars($this->input->post('merk', true)),
+            'no_plat' => htmlspecialchars($this->input->post('no_plat', true)),
+            'warna' => htmlspecialchars($this->input->post('warna', true)),
+            'tahun' => htmlspecialchars($this->input->post('tahun', true)),
             'status' => $this->input->post('status'),
             'gambar' => $this->_uploadGambar()
         ];
@@ -39,8 +39,18 @@ class rental_model extends CI_model
         if ($this->upload->do_upload('gambar')) {
             return $this->upload->data('file_name');
         } else {
-            $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors() . '</div>');
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">' . $this->upload->display_errors() . '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>');
+            redirect('admin/Data_mobil');
         }
+    }
+
+    public function hapusDataMobil($id_mobil)
+    {
+        $this->db->where('id_mobil', $id_mobil);
+        $this->db->delete('mobil');
     }
 
     public function ubahDataMobil()
@@ -70,12 +80,6 @@ class rental_model extends CI_model
         return $gambar;
     }
 
-    public function hapusDataMobil($id_mobil)
-    {
-        $this->db->where('id_mobil', $id_mobil);
-        $this->db->delete('mobil');
-    }
-
     public function getDataType()
     {
         return $this->db->get('type')->result_array();
@@ -89,18 +93,24 @@ class rental_model extends CI_model
     public function tambahDataType()
     {
         $data = [
-            'kode_type' => $this->input->post('kode_type'),
-            'nama_type' => $this->input->post('nama_type')
+            'kode_type' => htmlspecialchars($this->input->post('kode_type', true)),
+            'nama_type' => htmlspecialchars($this->input->post('nama_type', true))
         ];
 
         $this->db->insert('type', $data);
     }
 
+    public function hapusDataType($id)
+    {
+        $this->db->where('id_type', $id);
+        $this->db->delete('type');
+    }
+
     public function ubahDataType()
     {
         $data = [
-            'kode_type' => $this->input->post('kode_type'),
-            'nama_type' => $this->input->post('nama_type')
+            'kode_type' => htmlspecialchars($this->input->post('kode_type', true)),
+            'nama_type' => htmlspecialchars($this->input->post('nama_type', true))
         ];
 
         $this->db->where('id_type', $this->input->post('id_type'));
