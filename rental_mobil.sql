@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Waktu pembuatan: 06 Feb 2020 pada 00.06
+=======
+-- Waktu pembuatan: 27 Jan 2020 pada 20.33
+>>>>>>> e42492028376b08fc70aadf72e2f2bcfd7a3ebdd
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.2
 
@@ -75,6 +79,10 @@ CREATE TABLE `mobil` (
 
 INSERT INTO `mobil` (`id_mobil`, `kode_type`, `merk`, `no_plat`, `warna`, `tahun`, `status`, `gambar`) VALUES
 (1, 'SDN', 'Toyota Camry', 'B 1457 FOH', 'Hitam', '2014', '0', 'images_(1)3.jpg'),
+<<<<<<< HEAD
+=======
+(2, 'SDN', 'Sedan', 'B 1456 DAG', 'Hitam', '2020', '1', 'images_(1).jpg'),
+>>>>>>> e42492028376b08fc70aadf72e2f2bcfd7a3ebdd
 (3, 'SDN', 'Sedan', 'B 1232 DAI', 'Merah', '2015', '0', 'images_(2).jpg'),
 (4, 'SDN', 'nkjbk', 'bkjbjbk', 'bkjbkb', 'kjbk', '1', 'images_(2)1.jpg'),
 (10, 'SDN', 'Suzuki Ertiga', 'K 4563 ME', 'Putih', '2017', '1', '1551414665635-4fab2fb1f841f369b1facb28ac23493a.jpeg'),
