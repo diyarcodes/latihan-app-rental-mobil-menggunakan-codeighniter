@@ -12,4 +12,14 @@ class Dashboard extends CI_Controller
         $this->load->view('customer/dashboard', $data);
         $this->load->view('templates_customer/footer');
     }
+
+    public function detailMobil($id)
+    {
+        $data['judul'] = 'Detail Mobil';
+        $data['mobil'] = $this->rental_model->getDataMobilById($id);
+
+        $this->load->view('templates_customer/header', $data);
+        $this->load->view('customer/detail_mobil', $data);
+        $this->load->view('templates_customer/footer');
+    }
 }

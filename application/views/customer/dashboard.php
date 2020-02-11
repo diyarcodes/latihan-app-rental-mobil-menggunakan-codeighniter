@@ -76,17 +76,17 @@
 
                 <div class="row">
                     <?php foreach ($mobil as $mbl) : ?>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card h-100">
-                            <a href="#"><img class="card-img-top" src="<?= base_url('assets/img/imgcar/') . $mbl['gambar']; ?>" alt="<?= $mbl['merk']; ?>" width="160px" height="130px"></a>
-                            <div class="card-body">
-                                <h4 class="card-title">
-                                    <a href="#"><?= $mbl['merk']; ?></a>
-                                </h4>
-                                <h5>No. Plat: <?= $mbl['no_plat']; ?></h5>
-                            </div>
-                            <div class="card-footer">
-                                <?php
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top" src="<?= base_url('assets/img/imgcar/') . $mbl['gambar']; ?>" alt="<?= $mbl['merk']; ?>" width="160px" height="130px"></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="#"><?= $mbl['merk']; ?></a>
+                                    </h4>
+                                    <h5>No. Plat: <?= $mbl['no_plat']; ?></h5>
+                                </div>
+                                <div class="card-footer">
+                                    <?php
                                     if ($mbl['status'] == 0) {
                                         echo "<span class='btn btn-danger' disable>Telah di Rental</span>";
                                     } else {
@@ -94,10 +94,10 @@
                                     }
                                     ?>
 
-                                <a href="" class="btn btn-warning">Detail</a>
+                                    <a href="<?= base_url('customer/Dashboard/detailMobil/') . $mbl['id_mobil']; ?>" class="btn btn-warning">Detail</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     <?php endforeach; ?>
                 </div>
                 <!-- /.row -->
