@@ -116,4 +116,25 @@ class rental_model extends CI_model
         $this->db->where('id_type', $this->input->post('id_type'));
         $this->db->update('type', $data);
     }
+
+
+    public function getDataCustomer()
+    {
+        return $this->db->get('customer')->result_array();
+    }
+
+    public function tambahDataCustomer()
+    {
+        $data = [
+            'nama' => htmlspecialchars($this->input->post('nama', true)),
+            'username' => htmlspecialchars($this->input->post('username', true)),
+            'alamat' => htmlspecialchars($this->input->post('alamat', true)),
+            'gender' => htmlspecialchars($this->input->post('gender', true)),
+            'no_telepon' => htmlspecialchars($this->input->post('no_telepon', true)),
+            'no_ktp' => htmlspecialchars($this->input->post('no_ktp', true)),
+            'password' => password_hash($this->input->post('no_ktp'), PASSWORD_DEFAULT)
+        ];
+
+        $this->db->insert('customer', $data);
+    }
 }
