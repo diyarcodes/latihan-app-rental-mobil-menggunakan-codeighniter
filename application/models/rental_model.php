@@ -123,6 +123,11 @@ class rental_model extends CI_model
         return $this->db->get('customer')->result_array();
     }
 
+    public function getDataCustomerById($id)
+    {
+        return $this->db->get_where('customer', ['id_customer' => $id])->row_array();
+    }
+
     public function tambahDataCustomer()
     {
         $data = [
@@ -136,5 +141,26 @@ class rental_model extends CI_model
         ];
 
         $this->db->insert('customer', $data);
+    }
+
+    public function hapusCustomer($id)
+    {
+        $this->db->delete('customer', ['id_customer' => $id]);
+    }
+
+    public function ubahDataCustomer()
+    {
+        $data = [
+            'nama' => htmlspecialchars($this->input->post('nama', true)),
+            'username' => htmlspecialchars($this->input->post('username', true)),
+            'alamat' => htmlspecialchars($this->input->post('alamat', true)),
+            'gender' => htmlspecialchars($this->input->post('gender', true)),
+            'no_telepon' => htmlspecialchars($this->input->post('no_telepon', true)),
+            'no_ktp' => htmlspecialchars($this->input->post('no_ktp', true)),
+            'password' => password_hash($this->input->post('no_ktp'), PASSWORD_DEFAULT)
+        ];
+
+        $this->db->where('id_customer', $this->input->post('id_customer'));
+        $this->db->update('customer', $data);
     }
 }

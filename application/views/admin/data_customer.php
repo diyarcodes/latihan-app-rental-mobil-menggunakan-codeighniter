@@ -37,9 +37,10 @@
                         <td><?= $mbl['no_ktp']; ?></td>
                         <td><?= $mbl['password']; ?></td>
                         <td>
-                            <a href="<?= base_url('admin/data_customer/detail_customer/') . $mbl['id_customer']; ?>" class="btn btn-sm btn-success"><i class="fas fa-eye"></i></a>
-                            <a href="<?= base_url('admin/data_customer/hapus_customer/') . $mbl['id_customer']; ?>" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                            <a href="<?= base_url('admin/Data_customer/ubah_customer/') . $mbl['id_customer']; ?>" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+                            <div class="row">
+                                <a href="<?= base_url('admin/Data_customer/hapus_customer/') . $mbl['id_customer']; ?>" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                                <a href="<?= base_url('admin/Data_customer/ubah_customer/') . $mbl['id_customer']; ?>" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+                            </div>
                         </td>
                     </tr>
                 <?php endforeach; ?>

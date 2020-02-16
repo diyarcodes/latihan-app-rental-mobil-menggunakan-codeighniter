@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Feb 2020 pada 14.11
+-- Waktu pembuatan: 16 Feb 2020 pada 10.01
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.2
 
@@ -51,6 +51,13 @@ CREATE TABLE `customer` (
   `no_ktp` varchar(50) NOT NULL,
   `password` varchar(120) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `customer`
+--
+
+INSERT INTO `customer` (`id_customer`, `nama`, `username`, `alamat`, `gender`, `no_telepon`, `no_ktp`, `password`) VALUES
+(1, 'Ahmad Mishbakhud Diyar', 'Diyar.codes', 'Ngemplak, Lasem, Jateng', 'Laki-laki', '087654123321', '79798658', '$2y$10$D8CYfSKMQh.n3DQWXhY3cOuHcJmqxZF1NMP7bKD9tq.oH0mgU8nKG');
 
 -- --------------------------------------------------------
 
@@ -188,7 +195,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT untuk tabel `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `mobil`
